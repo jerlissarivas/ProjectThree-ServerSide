@@ -63,7 +63,7 @@ router.post('/signup', (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login', routeGuard, (req, res, next) => {
   passport.authenticate('local', (err, user, failureDetails) => {
     if (err) {
       res.status(500).json({ message: 'Something went wrong with database query.' });

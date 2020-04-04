@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
-const petSchema = new Schema(
+const authorSchema = new Schema(
   {
     // unless you are defining more than the "type" property, you don't have to use {} (see below)
     // firstName: {type: String, require: true}
-    name: String,
-    age: String,
-    breed: String,
+    firstName: String,
+    lastName: String,
+    nationality: String,
+    birthday: Date,
     pictureUrl: String
   },
   {
@@ -16,7 +17,7 @@ const petSchema = new Schema(
   }
 );
 
-// const Pet = model('Pet', petSchema);
-// module.exports = Pet;
+// const Author = model('Author', authorSchema);
+// module.exports = Author;
 
-module.exports = model("Pet", petSchema);
+module.exports = model('Author', authorSchema);
