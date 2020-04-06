@@ -14,3 +14,13 @@ $ npm run dev
 ```
 
 - To test your app, go to Postman. Now your routes will start with: `http://localhost:3001/`
+
+WHAT TO ADD TO APP:
+Add Trello style function for missing things for your trip planning process
+
+Extra Feature - Outfit Planning
+
+API Ideas:
+
+- Some sort of travel API
+- Google maps
