@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://localhost/awesome-ptwd-library-project", {
+  .connect("mongodb://localhost/module-3-project", {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
