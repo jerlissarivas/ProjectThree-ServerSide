@@ -25,14 +25,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(
-  cors({
-    credentials: true,
-    // origin: ['http://localhost:3000', 'https://appName.herokuapp.com']
-    origin: true,
-  })
-);
-
 // make sure express- session is used before the passport
 require("./configs/session.config")(app);
 
@@ -43,6 +35,14 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
+
+app.use(
+  cors({
+    credentials: true,
+    // origin: ['http://localhost:3000', 'https://appName.herokuapp.com']
+    origin: true,
+  })
+);
 
 // const index = require('./routes/index');
 // app.use('/', index);
