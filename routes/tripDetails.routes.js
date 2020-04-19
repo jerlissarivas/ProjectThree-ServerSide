@@ -16,7 +16,7 @@ const TripDetails = require("../models/TripDetails.model");
 router.post("/trips", (req, res) => {
   // console.log(req.body);
   TripDetails.create(req.body)
-    .then((tripDoc) => res.status(200).json({ trip: tripDoc }))
+    .then((tripDoc) => res.status(200).json(tripDoc))
     .catch((err) => next(err));
 });
 
@@ -26,7 +26,7 @@ router.post("/trips", (req, res) => {
 
 router.get("/trips", (req, res) => {
   TripDetails.find()
-    .then((tripsFromDB) => res.status(200).json({ trips: tripsFromDB }))
+    .then((tripsFromDB) => res.status(200).json(tripsFromDB))
     .catch((err) => next(err));
 });
 
@@ -48,7 +48,7 @@ router.post("/trips/:tripId/delete", (req, res) => {
 // <form action="/trips/{{foundTrip._id}}/update" method="POST">
 router.post("/trips/:id/update", (req, res) => {
   TripDetails.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then((updatedTrip) => res.status(200).json({ trip: updatedTrip }))
+    .then((updatedTrip) => res.status(200).json(updatedTrip))
     .catch((err) => next(err));
 });
 
@@ -59,7 +59,7 @@ router.post("/trips/:id/update", (req, res) => {
 router.get("/trips/:someTripId", (req, res) => {
   TripDetails.findById(req.params.someTripId)
     // .populate("author")
-    .then((foundTrip) => res.status(200).json({ trip: foundTrip }))
+    .then((foundTrip) => res.status(200).json(foundTrip))
     .catch((err) => next(err));
 });
 
