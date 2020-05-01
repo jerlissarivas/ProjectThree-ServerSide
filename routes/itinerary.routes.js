@@ -16,7 +16,7 @@ const Itinerary = require("../models/Itinerary.model");
 router.post("/itinerary", (req, res) => {
   // console.log(req.body);
   Itinerary.create(req.body)
-    .then((itineraryDoc) => res.status(200).json({ itinerary: itineraryDoc }))
+    .then((itineraryDoc) => res.status(200).json(itineraryDoc))
     .catch((err) => next(err));
 });
 
@@ -26,9 +26,7 @@ router.post("/itinerary", (req, res) => {
 
 router.get("/itinerary", (req, res) => {
   Itinerary.find()
-    .then((itineraryFromDB) =>
-      res.status(200).json({ itineraries: itineraryFromDB })
-    )
+    .then((itineraryFromDB) => res.status(200).json(itineraryFromDB))
     .catch((err) => next(err));
 });
 
@@ -50,9 +48,7 @@ router.post("/itinerary/:itineraryId/delete", (req, res) => {
 // <form action="/itinerary/{{foundItinerary._id}}/update" method="POST">
 router.post("/itinerary/:id/update", (req, res) => {
   Itinerary.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then((updatedItinerary) =>
-      res.status(200).json({ itinerary: updatedItinerary })
-    )
+    .then((updatedItinerary) => res.status(200).json(updatedItinerary))
     .catch((err) => next(err));
 });
 
@@ -63,9 +59,7 @@ router.post("/itinerary/:id/update", (req, res) => {
 router.get("/itinerary/:someItineraryId", (req, res) => {
   Itinerary.findById(req.params.someItineraryId)
     // .populate("author")
-    .then((foundItinerary) =>
-      res.status(200).json({ itinerary: foundItinerary })
-    )
+    .then((foundItinerary) => res.status(200).json(foundItinerary))
     .catch((err) => next(err));
 });
 
