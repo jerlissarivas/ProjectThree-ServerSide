@@ -16,7 +16,7 @@ const TravelDetails = require("../models/TravelDetails.model");
 router.post("/travel", (req, res) => {
   // console.log(req.body);
   TravelDetails.create(req.body)
-    .then((travelDoc) => res.status(200).json({ travel: travelDoc }))
+    .then((travelDoc) => res.status(200).json(travelDoc))
     .catch((err) => next(err));
 });
 
@@ -26,7 +26,7 @@ router.post("/travel", (req, res) => {
 
 router.get("/travel", (req, res) => {
   TravelDetails.find()
-    .then((travelFromDB) => res.status(200).json({ travels: travelFromDB }))
+    .then((travelFromDB) => res.status(200).json(travelFromDB))
     .catch((err) => next(err));
 });
 
@@ -48,7 +48,7 @@ router.post("/travel/:travelId/delete", (req, res) => {
 // <form action="/travel/{{foundTravel._id}}/update" method="POST">
 router.post("/travel/:id/update", (req, res) => {
   TravelDetails.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then((updatedTravel) => res.status(200).json({ travel: updatedTravel }))
+    .then((updatedTravel) => res.status(200).json(updatedTravel))
     .catch((err) => next(err));
 });
 
@@ -59,7 +59,7 @@ router.post("/travel/:id/update", (req, res) => {
 router.get("/travel/:someTravelId", (req, res) => {
   TravelDetails.findById(req.params.someTravelId)
     // .populate("author")
-    .then((foundTravel) => res.status(200).json({ travel: foundTravel }))
+    .then((foundTravel) => res.status(200).json(foundTravel))
     .catch((err) => next(err));
 });
 
