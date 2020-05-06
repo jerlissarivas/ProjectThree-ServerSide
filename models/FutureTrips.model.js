@@ -5,7 +5,7 @@ const FutureTripsSchema = new Schema(
   {
     // unless you are defining more than the "type" property, you don't have to use {} (see below)
     // firstName: {type: String, require: true}
-    expectedDate: Date,
+    expectedDate: String,
     eventLocation: String, // maybe use google maps also
     notes: String,
     // locationURL: URL, // HOW TO ADD URL TO MODEL
