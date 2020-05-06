@@ -10,6 +10,7 @@ const tripDetailsSchema = new Schema(
     location: String, // how to incorporate google to add a location
     dates: String, // how to incorporate calendar to plan date frame
     travelType: { type: String, enum: ["Flight", "Train", "Drive", "Other"] },
+    notes: String,
   },
   {
     // keeps record when is created and updated
