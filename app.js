@@ -54,7 +54,7 @@ app.use(
 app.use("/", require("./routes/index.routes"));
 app.use("/", require("./routes/travelDetails.routes"));
 app.use("/", require("./routes/tripDetails.routes"));
-app.use("/", require("./routes/itinerary.routes"));
+app.use("/", require("./routes/futureTrips.routes"));
 app.use("/api", require("./routes/authentication.routes"));
 
 module.exports = app;

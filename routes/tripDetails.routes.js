@@ -7,13 +7,14 @@ const router = express.Router();
 // ********* require Author and Book models in order to use them *********
 // const Author = require('../models/Author.model');
 const TripDetails = require("../models/TripDetails.model");
+const Itinerary = require("../models/FutureTrips.model");
 
 // ****************************************************************************************
 // POST - create a trip (TESTED | WORKS)
 // ****************************************************************************************
 
 // <form action="/trips" method="POST">
-router.post("/trips", (req, res) => {
+router.post("/trips", (req, res, next) => {
   // console.log(req.body);
   TripDetails.create(req.body)
     .then((tripDoc) => res.status(200).json(tripDoc))
@@ -62,5 +63,23 @@ router.get("/trips/:someTripId", (req, res) => {
     .then((foundTrip) => res.status(200).json(foundTrip))
     .catch((err) => next(err));
 });
+
+// router.get("/trips/:someTripId", (req, res, next) => {
+//   TripDetails.findById(req.params.someTripId)
+//     .then((foundTrip) => {
+//       console.log(foundTrip);
+//       Itinerary.findById(ObjectId(foundTrip.itinerary))
+//         .then((itinerary) => {
+//           res.status(200).json(foundTrip);
+//         })
+//         .catch((err) => {
+//           console.log(err);
+//         });
+//     })
+//     .catch((err) => {
+//       console.log(`Error while getting contact details from the DB: ${err}`);
+//       next(err);
+//     });
+// });
 
 module.exports = router;
