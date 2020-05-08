@@ -35,9 +35,9 @@ router.get("/futuretrips", (req, res) => {
 // ****************************************************************************************
 
 // <form action="/futureTrips/{{this._id}}/delete" method="post">
-router.post("/futuretrips/:futuretripsId/delete", (req, res) => {
-  FutureTrips.findByIdAndRemove(req.params.futureTripsId)
-    .then(() => res.json({ message: "Successfully removed!" }))
+router.post("/futuretrips/:futureTripsId/delete", (req, res) => {
+  FutureTrips.deleteOne({_id: req.params.futureTripsId})
+    .then((dbRes) => res.json({ message: "Successfully deleted!",  dbRes }))
     .catch((err) => next(err));
 });
 
